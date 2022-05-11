@@ -4,7 +4,7 @@
 $ django-admin startproject pytwitter .
 ```
 * Start a new app
-``bash
+```bash
 # tweets is the app name
 $ ./manage.py startapp tweets
 ```
@@ -38,3 +38,6 @@ Running migrations:
   Applying sessions.0001_initial... OK
   Applying tweets.0001_initial... OK
 ```
+
+### References
+* url: https://www.youtube.com/watch?v=f1R_bykXHGE&list=PL_jwM1whB-UkZJYgntIZZI6-STMez2PP4&index=1&t=2353s
