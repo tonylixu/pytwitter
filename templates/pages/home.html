@@ -7,7 +7,19 @@ This is amazing!
 {% block content %}
 Welcome to PyTweeter!
 
+<div id='tweets'>
+</div>
+
 <script>
+// Get HTML element
+const tweetsElement = document.getElementById("tweets")
+// Set HTML element
+tweetsElement.innerHTML = 'Loading...'
+
+var el1 = "<h1>Hi there 1</h1>"
+
+tweetsElement.innerHTML = el1
+
 const xhr = new XMLHttpRequest()
 const method = 'GET'
 const url = "/tweets"
@@ -18,7 +30,15 @@ xhr.open(method, url)
 xhr.onload = function() {
     const serverResponse = xhr.response
     var listedItems = serverResponse.response
-    console.log(listedItems)
+    var finalTweetStr = ""
+    var i;
+    for (i=0; i<listedItems.length; i++) {
+        console.log(i)
+        console.log(listedItems[i])
+        var currentItem = "<div class='mb-4'><h1>" + listedItems[i].id + "</h1>" + "<p>" + listedItems[i].content + "</p></div>"
+            finalTweetStr += currentItem
+    }
+    tweetsElement.innerHTML = finalTweetStr
 }
 xhr.send()
 
